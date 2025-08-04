@@ -1,0 +1,29 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <h2>Bienvenido al carrito de compras</h2>
+    <p>Usuario: <?php echo htmlspecialchars($_SESSION['usuario']); ?></p>
+
+    <!-- Aquí puedes agregar la lógica para mostrar libros en el carrito -->
+    <ul>
+        <li>Libro: "1984" - Cantidad: 1</li>
+        <li>Libro: "Cien años de soledad" - Cantidad: 2</li>
+    </ul>
+
+    <form method="post" action="logout.php">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+</body>
+</html>
